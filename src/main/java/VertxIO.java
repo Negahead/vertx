@@ -7,6 +7,7 @@ import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
+import io.vertx.ext.mongo.MongoClient;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import pojo.Movie;
@@ -114,6 +115,14 @@ public class VertxIO  extends AbstractVerticle{
 
         jsonResponse.add(movie);
         jsonResponse.add(new Movie("Transformer","Micheal Bay",new BigDecimal(45657)));
+
+        /**
+         * you scale your application by deploying multiple instances of your verticle and you want each verticle instance
+         * to share the same pool so you don't end up with multiple pools.
+         */
+        MongoClient.createNonShared(vertx,new JsonObject().put("url","mongo"))
+
+
 
 
         response // each HttpServerRequest is associated with a HttpServerResponse instance.

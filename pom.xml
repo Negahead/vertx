@@ -57,6 +57,12 @@
             <version>6.0.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-mongo-client</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+
 
 
 
